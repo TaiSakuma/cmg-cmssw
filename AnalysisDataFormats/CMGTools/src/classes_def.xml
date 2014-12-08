@@ -141,6 +141,11 @@
   <class name="cmg::PFJetComponent"/>
   <class name="std::vector<cmg::PFJetComponent>"/>
   
+  <class name="cmg::CaloJet"/>
+  <class name="std::vector<cmg::CaloJet>"/>
+  <class name="edm::Wrapper<cmg::CaloJet>"/>
+  <class name="edm::Wrapper<std::vector<cmg::CaloJet> >"/>
+
   <class name="cmg::QuadMuon"/>
   <class name="std::vector<cmg::QuadMuon>"/>
   <class name="edm::Wrapper<cmg::QuadMuon>"/>

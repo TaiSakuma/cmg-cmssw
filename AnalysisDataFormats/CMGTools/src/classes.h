@@ -14,6 +14,7 @@
 #include "AnalysisDataFormats/CMGTools/interface/PFJet.h"
 #include "AnalysisDataFormats/CMGTools/interface/StructuredPFJet.h"
 #include "AnalysisDataFormats/CMGTools/interface/PFJetComponent.h"
+#include "AnalysisDataFormats/CMGTools/interface/CaloJet.h"
 #include "AnalysisDataFormats/CMGTools/interface/BaseMET.h"
 #include "AnalysisDataFormats/CMGTools/interface/TriBool.h"
 #include "AnalysisDataFormats/CMGTools/interface/UnSet.h"
@@ -156,7 +157,10 @@ namespace {
     cmg::PFJetComponent  jetComp_;
     std::vector< cmg::PFJetComponent > vJetComps_;
 
-
+    cmg::CaloJet caloj_;
+    std::vector<cmg::CaloJet> calojv;
+    edm::Wrapper<cmg::CaloJet> ecaloj;
+    edm::Wrapper<std::vector<cmg::CaloJet> > ecalojv;
 
     cmg::QuadMuon qm_;
     std::vector<cmg::QuadMuon> qmv;

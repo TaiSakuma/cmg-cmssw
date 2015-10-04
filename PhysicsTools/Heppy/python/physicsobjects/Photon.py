@@ -138,13 +138,18 @@ class Photon(PhysicsObject ):
         idForBarrel = self.etaRegionID()
         passPhotonID = True
 
-        if self.CutBasedIDWP(name)["conversionVeto"][idForBarrel] and self.physObj.hasPixelSeed():
+        cutBasedIDWP = self.CutBasedIDWP(name)
+        if not 0 <= idForBarrel < min(len(cutBasedIDWP["conversionVeto"]), len(cutBasedIDWP["H/E"]), len(cutBasedIDWP["sigmaIEtaIEta"])):
+            passPhotonID = False
+            return passPhotonID
+
+        if cutBasedIDWP["conversionVeto"][idForBarrel] and self.physObj.hasPixelSeed():
             passPhotonID = False
 
-        if self.CutBasedIDWP(name)["H/E"][idForBarrel] < self.hOVERe():
+        if cutBasedIDWP["H/E"][idForBarrel] < self.hOVERe():
             passPhotonID = False
 
-        if self.CutBasedIDWP(name)["sigmaIEtaIEta"][idForBarrel] < self.full5x5_sigmaIetaIeta():
+        if cutBasedIDWP["sigmaIEtaIEta"][idForBarrel] < self.full5x5_sigmaIetaIeta():
             passPhotonID = False
 
         return passPhotonID
